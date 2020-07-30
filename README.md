@@ -18,3 +18,7 @@ If you are in a virtual environment, you may have an alternative way of invoking
 ### Included Trained Parameters
 
 I have included `params.npy`, which is a feature weighting I fitted to half of Judd's dataset for 10 epochs, and `params_standardize.npy`, a variant feature weighting optimized for standardized feature activity maps, which may be enabled by modifying `model.py`. (This is the approach taken in Deep Gaze I.)
+
+### Web Demo
+
+To see an illustrative demo of the model on an image of your choice or on your webcam data, visit [https://ajleite.github.io/DeepGazeZero].

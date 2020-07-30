@@ -1,0 +1,20 @@
+.row {
+  display: inline-block;
+}
+.category {
+  border: 1px solid;
+  display: inline-block;
+  text-align: center;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.level {
+  max-width: calc(33% - 15px);
+}
+.output {
+  max-width: calc(50% - 15px);
+}
+canvas { max-width: 100%; }
+#visualize-process {
+  text-align: center;
+}

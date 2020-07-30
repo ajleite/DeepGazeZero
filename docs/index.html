@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Deep Gaze Zero: Web Demo</title>
+    <!-- Icon by Oleksandr Panasovskyi (https://thenounproject.com/term/convolutional-neural-network/2863992/) -->
+    <link rel="icon" href="favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.1"></script>
+    <script src="webdemo.js"></script>
+    <link rel="stylesheet" href="webdemo.css">
+  </head>
+  <body>
+    <h2>Deep Gaze Zero: Web Demo<hr/></h2>
+    <div id="load-model-div">
+      Can I load a 15MB image recognition and salience computation model?<br>
+      <button type="button" onclick="load_model();">Yes!</button><br>
+      <a href="https://github.com/ajleite/DeepGazeZero">No, go to the code repo.</a>
+      <hr/>
+    </div>
+    <div id="select-stimulus" style="display: none;">
+      <h3>Select a stimulus</h3>
+      <div>Your image or video data will remain solely on your device.</div>
+      <div>Use an image file: <input type="file" onchange="changeImage()" id="imagebox"></div>
+      <div>
+        Use your camera:
+        <button onclick="enableFrontFacing()" id="ffcam">Front-facing</button>
+        <button onclick="enableRearFacing()" id="rfcam">Rear-facing</button>
+        <button onclick="disableCamera()" id="discam" disabled>Pause</button><br>
+        <label for="fps">Target FPS:</label>
+        <select name="fps" id="fps" onchange="setFPS(this.value);">
+          <option value="1">1 FPS</option>
+          <option value="2">2 FPS</option>
+          <option value="5" selected>5 FPS</option>
+          <option value="10">10 FPS</option>
+          <option value="20">20 FPS</option>
+        </select>
+      </div>
+      <img id="hiddenimg" src="#" hidden>
+      <video id="hiddenvid" width="224" height="224" hidden></video>
+      <hr/>
+    </div>
+    <div id="visualize-process">
+      <div class="row">
+        <div class="category">
+          <div><strong>Stimulus</strong><br>(Retina)</div>
+          <canvas id="stimulus" width="224" height="224"></canvas>
+        </div>
+      </div>
+      <div class="row">
+        <div class="category level">
+          <div><strong>Low-level feature activity</strong><br>(~V1/V2, location sensitive)</div>
+          <canvas id="LL_features" width="224" height="224"></canvas>
+        </div>
+        <div class="category level">
+          <div><strong>Mid-level feature activity</strong><br>(~V4, balanced)</div>
+          <canvas id="ML_features" width="224" height="224"></canvas>
+        </div>
+        <div class="category level">
+          <div><strong>High-level feature activity</strong><br>(~IT, object sensitive)</div>
+          <canvas id="HL_features" width="224" height="224"></canvas>
+        </div><br>
+      </div><br>
+      <div class="row">
+        <div class="category output">
+          <div><strong>Salience map</strong><br>(sSC)</div>
+          <canvas id="output" width="224" height="224"></canvas>
+        </div>
+        <div class="category output">
+          <div><strong>Salience over image</strong><br>&nbsp;</div>
+          <div>
+            <canvas id="combined" width="224" height="224"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
