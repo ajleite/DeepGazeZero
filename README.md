@@ -21,4 +21,9 @@ I have included `params.npy`, which is a feature weighting I fitted to half of J
 
 ### Web Demo
 
-To see an illustrative demo of the model on an image of your choice or on your webcam data, visit [https://ajleite.github.io/DeepGazeZero].
+To see an illustrative demo of the model on an image of your choice or on your webcam data, visit https://ajleite.github.io/DeepGazeZero.
+
+### Video Discussion
+
+See my "poster presentation" of this work from the 2020 meeting of the Cognitive Science Society:
+[![Visual salience as a linear combination of feature activity maps](https://img.youtube.com/vi/_pqBF7svmaQ/0.jpg)](https://www.youtube.com/watch?v=_pqBF7svmaQ)
